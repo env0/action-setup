@@ -1,4 +1,4 @@
-import {setFailed, startGroup, endGroup, info} from '@actions/core'
+import {setFailed, startGroup, endGroup} from '@actions/core'
 import {Inputs} from '../inputs'
 import runSelfInstaller from './run'
 
@@ -14,7 +14,7 @@ export async function install(inputs: Inputs) {
     let success = false;
     let step = 0;
     let status;
-    for (step < 3 && !success) {
+    while (step < 3 && !success) {
         // Runs 5 times, with values of step 0 through 4.
         console.log('Trying to install');
         status = await install();
