@@ -16,12 +16,12 @@ export async function install(inputs: Inputs) {
     let status;
     for (step < 3 && !success) {
         // Runs 5 times, with values of step 0 through 4.
-        info('Trying to install');
+        console.log('Trying to install');
         status = await install();
         step++;
         if (!status) {
             success = true;
-            info("yay")
+            console.log("yay")
         }
     }
     endGroup();
